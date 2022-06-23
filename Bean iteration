@@ -1,0 +1,94 @@
+Desc:
+  So Beans are basically classes. It's a fancy name. Slang of Spring framework is all it is. 
+  In java, you can say classes, but when using Spring, just call the classes Beans.
+  
+  
+  This module involves, iteration of beans present in a basic Spring project. 
+  
+  package com.example.ria;
+
+//Code of the main file
+//My file's name is "RiaApplication.java"
+
+          import org.springframework.boot.SpringApplication;
+          import org.springframework.boot.autoconfigure.SpringBootApplication;
+          import org.springframework.context.ApplicationContext;
+
+          @SpringBootApplication
+          public class RiaApplication {
+
+            public static void main(String[] args) {
+            
+            //Creating an object of ApplicationContext Class to iterate over the beans present. 
+              ApplicationContext obj = SpringApplication.run(RiaApplication.class, args);
+              for(String ria : obj.getBeanDefinitionNames()) {
+                System.out.println(ria);
+              }
+            }
+
+          }
+          
+Output:
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.0)
+
+2022-06-23 16:22:08.043  INFO 4488 --- [           main] com.example.ria.RiaApplication           : Starting RiaApplication using Java 17.0.2 on DESKTOP-448ONOE with PID 4488 (C:\Users\User\Downloads\ria\ria\target\classes started by User in C:\Users\User\Downloads\ria\ria)
+2022-06-23 16:22:08.050  INFO 4488 --- [           main] com.example.ria.RiaApplication           : No active profile set, falling back to 1 default profile: "default"
+2022-06-23 16:22:09.233  INFO 4488 --- [           main] com.example.ria.RiaApplication           : Started RiaApplication in 2.04 seconds (JVM running for 2.832)
+org.springframework.context.annotation.internalConfigurationAnnotationProcessor
+org.springframework.context.annotation.internalAutowiredAnnotationProcessor
+org.springframework.context.annotation.internalCommonAnnotationProcessor
+org.springframework.context.event.internalEventListenerProcessor
+org.springframework.context.event.internalEventListenerFactory
+riaApplication                //<---- This is my application class
+org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory
+son                           //<---- This is a class I made. 
+org.springframework.boot.autoconfigure.AutoConfigurationPackages
+org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration
+propertySourcesPlaceholderConfigurer
+org.springframework.boot.autoconfigure.aop.AopAutoConfiguration$ClassProxyingConfiguration
+forceAutoProxyCreatorToUseClassProxying
+org.springframework.boot.autoconfigure.aop.AopAutoConfiguration
+org.springframework.boot.autoconfigure.availability.ApplicationAvailabilityAutoConfiguration
+applicationAvailability
+org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration
+org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor
+org.springframework.boot.context.internalConfigurationPropertiesBinderFactory
+org.springframework.boot.context.internalConfigurationPropertiesBinder
+org.springframework.boot.context.properties.BoundConfigurationProperties
+org.springframework.boot.context.properties.EnableConfigurationPropertiesRegistrar.methodValidationExcludeFilter
+org.springframework.boot.autoconfigure.context.LifecycleAutoConfiguration
+lifecycleProcessor
+spring.lifecycle-org.springframework.boot.autoconfigure.context.LifecycleProperties
+org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration
+spring.info-org.springframework.boot.autoconfigure.info.ProjectInfoProperties
+org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration
+spring.sql.init-org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties
+org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor
+org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration
+taskExecutorBuilder
+applicationTaskExecutor
+spring.task.execution-org.springframework.boot.autoconfigure.task.TaskExecutionProperties
+org.springframework.boot.autoconfigure.task.TaskSchedulingAutoConfiguration
+scheduledBeanLazyInitializationExcludeFilter
+taskSchedulerBuilder
+spring.task.scheduling-org.springframework.boot.autoconfigure.task.TaskSchedulingProperties
+org.springframework.aop.config.internalAutoProxyCreator
+
+
+
+NOTES:
+These are all the beans present inside the project. 
+The no of classes present in a package will be displayed in the output.
+But if the beans are in different packages, then they won't be displayed.
+
+
+
+
